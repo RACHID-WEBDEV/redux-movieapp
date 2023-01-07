@@ -1,6 +1,6 @@
 import { takeLatest, put, fork, call } from 'redux-saga/effects';
-import { fetchMovies ,fetchMovie} from './api';
-import { getMovies, setMovies,getMovie,setMovie } from './feature/movieSlice';
+import { fetchMovies, fetchMovie } from './api';
+import { getMovies, setMovies, getMovie, setMovie } from './feature/movieSlice';
 
 function* onLoadMoviesAsync({ payload }) {
   try {

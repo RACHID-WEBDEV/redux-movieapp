@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getMovies } from 'redux/feature/movieSlice'
 
 const Search = () => {
-    const [name, setName] = useState('spider')
+    const [name, setName] = useState('blade')
 
     const dispatch = useDispatch()
 
@@ -13,11 +13,11 @@ const Search = () => {
 
     useEffect(() => {
         dispatch(getMovies(name))
-    }, [name])
+    }, [dispatch, name])
 
     return (
         <div>
-            <h1>Movie Search App</h1>
+            <h1 className="text-4xl text-center font-bold my-5">Movie App</h1>
 
             <form onSubmit={(e) => e.preventDefault()}>
                 <label htmlFor="search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -28,8 +28,8 @@ const Search = () => {
                     <input type="search" id="search"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="block w-full p-4 pl-10 text-sm  text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required />
-                    {/* <button type="submit" className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button> */}
+                        className="block w-full min-w-[400px] p-4 mb-3 pl-10 text-sm  text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required />
+
                 </div>
                 {error && <p className='text-red-600 mt-2'>{error}</p>}
             </form>
